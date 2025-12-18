@@ -1,4 +1,3 @@
-#include <iostream>
 #include "../src/utils/utils.h"
 
 // Problem 5: Smallest multiple

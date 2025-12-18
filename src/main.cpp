@@ -8,7 +8,8 @@
 #include "utils/utils.h"
 
 // Track which problems are implemented
-const std::set<int> IMPLEMENTED = {1, 2, 3, 5, 7};
+const std::set<int> IMPLEMENTED = { 1, 2, 3, 5, 7, 10 };
+const int LAST_PROBLEM = 16;
 
 // Forward declare problem functions
 int problem_001(int limit);
@@ -17,6 +18,7 @@ long long problem_003(long long n);
 int problem_004(int digits);
 long long problem_005(int n);
 long long int problem_007( int limit );
+long long int problem_010( int limit );
 
 void run_problem(int prob_num) {
     std::cout << "=== Problem " << prob_num << " ===" << std::endl;
@@ -60,6 +62,18 @@ void run_problem(int prob_num) {
             std::cout << "Result: " << result;
             break;
         }
+        case 10: {
+            int n = 2'000'000;
+            long long result = problem_010(n);
+            std::cout << "Result: " << result;
+            break;
+        }        
+        // case 16: {
+        //     int n = 2'000'000;
+        //     long long result = problem_016(n);
+        //     std::cout << "Result: " << result;
+        //     break;
+        // }
         default:
             std::cerr << "Problem " << prob_num << " not implemented" << std::endl;
             return;
@@ -85,7 +99,7 @@ int main(int argc, char* argv[]) {
         auto total_start = std::chrono::high_resolution_clock::now();
 
         // Run all problems (skip unimplemented ones)
-        for (int i = 1; i <= 7; ++i) {  // Update upper bound as more problems are added
+        for (int i = 1; i <= LAST_PROBLEM; ++i) {  // Update upper bound as more problems are added
             if (IMPLEMENTED.count(i) == 0) {
                 std::cout << "=== Problem " << i << " ===" << std::endl;
                 std::cout << "Not implemented" << std::endl;

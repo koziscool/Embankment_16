@@ -1,4 +1,3 @@
-#include <iostream>
 #include <tuple>
 
 // Problem 2: Even Fibonacci numbers

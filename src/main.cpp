@@ -8,7 +8,7 @@
 #include "utils/utils.h"
 
 // Track which problems are implemented
-const std::set<int> IMPLEMENTED = { 1, 2, 3, 5, 7, 10 };
+const std::set<int> IMPLEMENTED = { 1, 2, 3, 5, 7, 10, 16 };
 const int LAST_PROBLEM = 16;
 
 // Forward declare problem functions
@@ -19,6 +19,7 @@ int problem_004(int digits);
 long long problem_005(int n);
 long long int problem_007( int limit );
 long long int problem_010( int limit );
+long long int problem_016( int limit );
 
 void run_problem(int prob_num) {
     std::cout << "=== Problem " << prob_num << " ===" << std::endl;
@@ -68,12 +69,12 @@ void run_problem(int prob_num) {
             std::cout << "Result: " << result;
             break;
         }        
-        // case 16: {
-        //     int n = 2'000'000;
-        //     long long result = problem_016(n);
-        //     std::cout << "Result: " << result;
-        //     break;
-        // }
+        case 16: {
+            int n = 1'000;
+            long long result = problem_016(n);
+            std::cout << "Result: " << result;
+            break;
+        }
         default:
             std::cerr << "Problem " << prob_num << " not implemented" << std::endl;
             return;

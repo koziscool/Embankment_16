@@ -14,7 +14,7 @@ long long problem_003(long long n) {
     long int max_prime = 0;
     long int remainder = n;
 
-    for(const auto& p: primes){
+    for(const auto p: primes){
         if( remainder == 1 || p*p > remainder )
             break;
         if( remainder % p == 0 )

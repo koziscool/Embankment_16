@@ -3,13 +3,20 @@
 #include <cstring>
 #include <chrono>
 #include <iomanip>
+#include <set>
 
 #include "utils/utils.h"
+
+// Track which problems are implemented
+const std::set<int> IMPLEMENTED = {1, 2, 3, 5, 7};
 
 // Forward declare problem functions
 int problem_001(int limit);
 int problem_002(int limit);
 long long problem_003(long long n);
+int problem_004(int digits);
+long long problem_005(int n);
+long long int problem_007( int limit );
 
 void run_problem(int prob_num) {
     std::cout << "=== Problem " << prob_num << " ===" << std::endl;
@@ -32,6 +39,24 @@ void run_problem(int prob_num) {
         case 3: {
             long long n = 600851475143LL;
             long long result = problem_003(n);
+            std::cout << "Result: " << result;
+            break;
+        }
+        case 4: {
+            int digits = 3;
+            int result = problem_004(digits);
+            std::cout << "Result: " << result;
+            break;
+        }
+        case 5: {
+            int n = 20;
+            long long result = problem_005(n);
+            std::cout << "Result: " << result;
+            break;
+        }
+        case 7: {
+            int n = 10'001;
+            long long result = problem_007(n);
             std::cout << "Result: " << result;
             break;
         }
@@ -59,8 +84,14 @@ int main(int argc, char* argv[]) {
     if (arg == "all") {
         auto total_start = std::chrono::high_resolution_clock::now();
 
-        // Run all implemented problems
-        for (int i = 1; i <= 3; ++i) {  // Update upper bound as more problems are added
+        // Run all problems (skip unimplemented ones)
+        for (int i = 1; i <= 7; ++i) {  // Update upper bound as more problems are added
+            if (IMPLEMENTED.count(i) == 0) {
+                std::cout << "=== Problem " << i << " ===" << std::endl;
+                std::cout << "Not implemented" << std::endl;
+                std::cout << std::endl;
+                continue;
+            }
             run_problem(i);
             std::cout << std::endl;
         }

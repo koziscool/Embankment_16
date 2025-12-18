@@ -4,9 +4,12 @@
 #include <chrono>
 #include <iomanip>
 
+#include "utils/utils.h"
+
 // Forward declare problem functions
 int problem_001(int limit);
 int problem_002(int limit);
+long long problem_003(long long n);
 
 void run_problem(int prob_num) {
     std::cout << "=== Problem " << prob_num << " ===" << std::endl;
@@ -23,6 +26,12 @@ void run_problem(int prob_num) {
         case 2: {
             int limit = 4000000;
             int result = problem_002(limit);
+            std::cout << "Result: " << result;
+            break;
+        }
+        case 3: {
+            long long n = 600851475143LL;
+            long long result = problem_003(n);
             std::cout << "Result: " << result;
             break;
         }
@@ -51,7 +60,7 @@ int main(int argc, char* argv[]) {
         auto total_start = std::chrono::high_resolution_clock::now();
 
         // Run all implemented problems
-        for (int i = 1; i <= 2; ++i) {  // Update upper bound as more problems are added
+        for (int i = 1; i <= 3; ++i) {  // Update upper bound as more problems are added
             run_problem(i);
             std::cout << std::endl;
         }

@@ -12,3 +12,4 @@ const std::vector<long long>& getPrimes(long long limit = 100000000);
 long long int factorial(int n);
 long long int combinations(int n, int r);
 
+bool isPalindrome( long long int n );

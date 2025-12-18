@@ -2,6 +2,7 @@
 
 #include <cmath>
 #include <iostream>
+#include <string>
 
 std::vector<long long> makePrimes(long long n) {
     if (n <= 2) return {};
@@ -60,4 +61,15 @@ long long int factorial(int n){
 
 long long int combinations(int n, int r){
     return factorial(n) / factorial(r) / factorial(n-r);
+}
+
+bool isPalindrome(long long n) {
+    std::string s = std::to_string(n);
+    int left = 0, right = s.length() - 1;
+    while (left < right) {
+        if (s[left] != s[right]) return false;
+        left++;
+        right--;
+    }
+    return true;
 }

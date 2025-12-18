@@ -5,21 +5,8 @@
 #include <iomanip>
 #include <set>
 
+#include "../problems/problems.h"
 #include "utils/utils.h"
-
-// Track which problems are implemented
-const std::set<int> IMPLEMENTED = { 1, 2, 3, 5, 7, 10, 16 };
-const int LAST_PROBLEM = 16;
-
-// Forward declare problem functions
-int problem_001(int limit);
-int problem_002(int limit);
-long long problem_003(long long n);
-int problem_004(int digits);
-long long problem_005(int n);
-long long int problem_007( int limit );
-long long int problem_010( int limit );
-long long int problem_016( int limit );
 
 void run_problem(int prob_num) {
     std::cout << "=== Problem " << prob_num << " ===" << std::endl;
@@ -30,49 +17,55 @@ void run_problem(int prob_num) {
         case 1: {
             int limit = 1000;
             int result = problem_001(limit);
-            std::cout << "Result: " << result;
+            std::cout << "Result: " << std::setw(21) << std::left << result;
             break;
         }
         case 2: {
             int limit = 4000000;
             int result = problem_002(limit);
-            std::cout << "Result: " << result;
+            std::cout << "Result: " << std::setw(21) << std::left << result;
             break;
         }
         case 3: {
             long long n = 600851475143LL;
             long long result = problem_003(n);
-            std::cout << "Result: " << result;
+            std::cout << "Result: " << std::setw(21) << std::left << result;
             break;
         }
         case 4: {
             int digits = 3;
             int result = problem_004(digits);
-            std::cout << "Result: " << result;
+            std::cout << "Result: " << std::setw(21) << std::left << result;
             break;
         }
         case 5: {
             int n = 20;
             long long result = problem_005(n);
-            std::cout << "Result: " << result;
+            std::cout << "Result: " << std::setw(21) << std::left << result;
             break;
         }
         case 7: {
             int n = 10'001;
             long long result = problem_007(n);
-            std::cout << "Result: " << result;
+            std::cout << "Result: " << std::setw(21) << std::left << result;
             break;
         }
         case 10: {
             int n = 2'000'000;
             long long result = problem_010(n);
-            std::cout << "Result: " << result;
+            std::cout << "Result: " << std::setw(21) << std::left << result;
             break;
-        }        
+        }
+        case 15: {
+            int n = 20;
+            long long result = problem_015(n);
+            std::cout << "Result: " << std::setw(21) << std::left << result;
+            break;
+        }
         case 16: {
             int n = 1'000;
             long long result = problem_016(n);
-            std::cout << "Result: " << result;
+            std::cout << "Result: " << std::setw(21) << std::left << result;
             break;
         }
         default:
@@ -82,7 +75,7 @@ void run_problem(int prob_num) {
 
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
-    std::cout << "\t\tElapsed: " << std::fixed << std::setprecision(3)
+    std::cout << " Elapsed: " << std::fixed << std::setprecision(3)
               << duration.count() / 1000.0 << " ms" << std::endl;
 }
 

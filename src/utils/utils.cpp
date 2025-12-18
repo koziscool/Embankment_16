@@ -46,3 +46,18 @@ const std::vector<long long>& getPrimes(long long limit) {
     // Return full cache (caller can filter if needed)
     return allPrimes;
 }
+
+
+long long int factorial(int n){
+    if( n == 0 ) return 1;
+
+    long long int retProd = 1;
+    for( int i = 1; i <= n; i++ ){
+        retProd *= i;
+    }
+    return retProd;
+}
+
+long long int combinations(int n, int r){
+    return factorial(n) / factorial(r) / factorial(n-r);
+}

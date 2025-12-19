@@ -142,6 +142,10 @@ int BigInt::digit_sum() const {
     return sum;
 }
 
+int BigInt::num_digits() const {
+    return digits.size();
+}
+
 // Convert to string
 std::string BigInt::to_string() const {
     std::string s;
@@ -155,4 +159,13 @@ std::string BigInt::to_string() const {
 std::ostream& operator<<(std::ostream& os, const BigInt& b) {
     os << b.to_string();
     return os;
+}
+
+// Factorial
+BigInt BigInt::factorial(int n) {
+    BigInt result(1);
+    for (int i = 2; i <= n; ++i) {
+        result = result * i;
+    }
+    return result;
 }

@@ -166,6 +166,42 @@ void test_copy_and_equality() {
     std::cout << "  ✓ Copy constructor and equality pass" << std::endl;
 }
 
+void test_num_digits() {
+    std::cout << "Testing num_digits..." << std::endl;
+
+    BigInt a(0);
+    std::cout << "  num_digits(" << a << ") = " << a.num_digits() << std::endl;
+    assert(a.num_digits() == 1);
+
+    BigInt b(5);
+    std::cout << "  num_digits(" << b << ") = " << b.num_digits() << std::endl;
+    assert(b.num_digits() == 1);
+
+    BigInt c(99);
+    std::cout << "  num_digits(" << c << ") = " << c.num_digits() << std::endl;
+    assert(c.num_digits() == 2);
+
+    BigInt d(12345);
+    std::cout << "  num_digits(" << d << ") = " << d.num_digits() << std::endl;
+    assert(d.num_digits() == 5);
+
+    BigInt e(10);
+    BigInt f = e.pow(10);
+    std::cout << "  num_digits(10^10) = " << f.num_digits() << std::endl;
+    assert(f.num_digits() == 11);  // 10^10 = 10000000000
+
+    BigInt g(2);
+    BigInt h = g.pow(1000);
+    std::cout << "  num_digits(2^1000) = " << h.num_digits() << std::endl;
+    assert(h.num_digits() == 302);
+
+    BigInt i = BigInt::factorial(100);
+    std::cout << "  num_digits(100!) = " << i.num_digits() << std::endl;
+    assert(i.num_digits() == 158);
+
+    std::cout << "  ✓ num_digits passes" << std::endl;
+}
+
 void test_output() {
     std::cout << "Testing output operator..." << std::endl;
 
@@ -192,6 +228,7 @@ int main() {
     test_power();
     test_large_power();
     test_digit_sum();
+    test_num_digits();
     test_output();
 
     std::cout << std::endl;

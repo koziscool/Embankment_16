@@ -44,6 +44,12 @@ void run_problem(int prob_num) {
             std::cout << "Result: " << std::setw(21) << std::left << result;
             break;
         }
+        case 6: {
+            int n = 100;
+            long long result = problem_006(n);
+            std::cout << "Result: " << std::setw(21) << std::left << result;
+            break;
+        }
         case 7: {
             int n = 10'001;
             long long result = problem_007(n);
@@ -68,6 +74,18 @@ void run_problem(int prob_num) {
             std::cout << "Result: " << std::setw(21) << std::left << result;
             break;
         }
+        case 20: {
+            int n = 100;
+            long long result = problem_020(n);
+            std::cout << "Result: " << std::setw(21) << std::left << result;
+            break;
+        }    
+        case 25: {
+            int n = 1000;
+            long long result = problem_025(n);
+            std::cout << "Result: " << std::setw(21) << std::left << result;
+            break;
+        }      
         default:
             std::cerr << "Problem " << prob_num << " not implemented" << std::endl;
             return;

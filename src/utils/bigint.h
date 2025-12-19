@@ -30,7 +30,11 @@ public:
 
     // Utility functions
     int digit_sum() const;
+    int num_digits() const;
     std::string to_string() const;
+
+    // Static methods
+    static BigInt factorial(int n);
 
     friend std::ostream& operator<<(std::ostream& os, const BigInt& b);
 };

@@ -1,7 +1,7 @@
 
 
-const std::set<int> IMPLEMENTED = { 1, 2, 3, 4, 5, 6, 7, 10, 15, 16, 20, 25 };
-const int LAST_PROBLEM = 25;
+const std::set<int> IMPLEMENTED = { 1, 2, 3, 4, 5, 6, 7, 10, 15, 16, 20, 25, 46 };
+const int LAST_PROBLEM = 46;
 
 
 int problem_001(int limit);
@@ -16,3 +16,4 @@ long long int problem_015( int limit );
 long long int problem_016( int limit );
 int problem_020( int limit );
 int problem_025( int limit );
+long long int problem_046();

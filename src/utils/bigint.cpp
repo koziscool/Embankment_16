@@ -46,6 +46,24 @@ bool BigInt::operator!=(const BigInt& other) const {
     return !(*this == other);
 }
 
+// Less than operator
+bool BigInt::operator<(const BigInt& other) const {
+    // Different sizes - fewer digits means smaller number
+    if (digits.size() != other.digits.size()) {
+        return digits.size() < other.digits.size();
+    }
+
+    // Same size - compare digit by digit from most significant (end) to least
+    for (int i = digits.size() - 1; i >= 0; --i) {
+        if (digits[i] != other.digits[i]) {
+            return digits[i] < other.digits[i];
+        }
+    }
+
+    // All digits equal
+    return false;
+}
+
 // Addition
 BigInt BigInt::operator+(const BigInt& other) const {
     BigInt result;

@@ -21,6 +21,7 @@ public:
     // Comparison
     bool operator==(const BigInt& other) const;
     bool operator!=(const BigInt& other) const;
+    bool operator<(const BigInt& other) const;
 
     // Basic operations
     BigInt operator+(const BigInt& other) const;

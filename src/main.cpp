@@ -3,7 +3,6 @@
 #include <cstring>
 #include <chrono>
 #include <iomanip>
-#include <set>
 
 #include "../problems/problems.h"
 #include "utils/utils.h"
@@ -85,7 +84,13 @@ void run_problem(int prob_num) {
             long long result = problem_025(n);
             std::cout << "Result: " << std::setw(21) << std::left << result;
             break;
-        }      
+        }  
+        case 29: {
+            int n = 100;
+            long long result = problem_029(n);
+            std::cout << "Result: " << std::setw(21) << std::left << result;
+            break;
+        }              
         case 40: {
             long long result = problem_040();
             std::cout << "Result: " << std::setw(21) << std::left << result;

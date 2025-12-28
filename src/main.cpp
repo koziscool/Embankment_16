@@ -96,6 +96,11 @@ void run_problem(int prob_num) {
             std::cout << "Result: " << std::setw(21) << std::left << result;
             break;
         }   
+        case 43: {
+            long long result = problem_043();
+            std::cout << "Result: " << std::setw(21) << std::left << result;
+            break;
+        } 
         case 46: {
             long long result = problem_046();
             std::cout << "Result: " << std::setw(21) << std::left << result;

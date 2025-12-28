@@ -1,5 +1,6 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra -O2 -g
+LDFLAGS = -lgmp -lgmpxx
 
 TARGET = build/euler
 TEST_TARGET = build/test_bigint
@@ -27,10 +28,10 @@ $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
 $(TARGET): $(ALL_SRCS) | $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) $(ALL_SRCS) -o $(TARGET)
+	$(CXX) $(CXXFLAGS) $(ALL_SRCS) -o $(TARGET) $(LDFLAGS)
 
 $(TEST_TARGET): $(TEST_SRCS) | $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) $(TEST_SRCS) -o $(TEST_TARGET)
+	$(CXX) $(CXXFLAGS) $(TEST_SRCS) -o $(TEST_TARGET) $(LDFLAGS)
 
 run: $(TARGET)
 	@./$(TARGET) $(PROB)

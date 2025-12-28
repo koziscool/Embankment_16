@@ -106,6 +106,12 @@ void run_problem(int prob_num) {
             std::cout << "Result: " << std::setw(21) << std::left << result;
             break;
         }           
+        case 53: {
+            int n = 100;
+            long long result = problem_053(n);
+            std::cout << "Result: " << std::setw(21) << std::left << result;
+            break;
+        }           
         default:
             std::cerr << "Problem " << prob_num << " not implemented" << std::endl;
             return;

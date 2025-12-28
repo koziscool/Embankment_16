@@ -3,8 +3,8 @@
 #include <set>
 
 const std::set<int> IMPLEMENTED = 
-        { 1, 2, 3, 4, 5, 6, 7, 10, 15, 16, 20, 25, 29, 40, 43, 46 };
-const int LAST_PROBLEM = 46;
+        { 1, 2, 3, 4, 5, 6, 7, 10, 15, 16, 20, 25, 29, 40, 43, 46, 53 };
+const int LAST_PROBLEM = 53;
 
 
 int problem_001(int limit);
@@ -23,3 +23,4 @@ long long int problem_029(int limit);
 long long int problem_040();
 long long int problem_043();
 long long int problem_046();
+int problem_053( int limit );

@@ -4,7 +4,7 @@
 #include <cmath>
 
 long long int problem_043(){
-    long long int retSum = 0, n;
+    long long int retSum = 0;
     int arr[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
     std::vector<int> digits(std::begin(arr), std::end(arr));
 
@@ -16,11 +16,9 @@ long long int problem_043(){
                         if( (digits.at(5) *100 + digits[6] * 10 + digits[7]) % 11 == 0 )
                             if( (digits.at(6) *100 + digits[7] * 10 + digits[8]) % 13 == 0 )
                                 if( (digits.at(7) *100 + digits[8] * 10 + digits[9]) % 17 == 0 ){
-                                    n = 0;
                                     for( int i = 0; i <= 9; i++ ){
-                                        n += digits.at(i) * std::pow(10, 9 - i);
+                                        retSum += digits.at(i) * std::pow(10, 9 - i);
                                     }
-                                    retSum += n;
                                 }
         
 

@@ -14,23 +14,32 @@ TEST_SRC = $(SRC_DIR)/test_bigint.cpp
 PROBLEM_SRCS = $(wildcard $(PROB_DIR)/*.cpp)
 UTIL_SRCS = $(wildcard $(SRC_DIR)/utils/*.cpp)
 
+# Find all header files
+PROBLEM_HDRS = $(wildcard $(PROB_DIR)/*.h)
+UTIL_HDRS = $(wildcard $(SRC_DIR)/utils/*.h)
+
 ALL_SRCS = $(MAIN_SRC) $(PROBLEM_SRCS) $(UTIL_SRCS)
+ALL_HDRS = $(PROBLEM_HDRS) $(UTIL_HDRS)
 TEST_SRCS = $(TEST_SRC) $(UTIL_SRCS)
 
 # Default problem to run
 PROB ?= 1
 
-.PHONY: all clean run test
+.PHONY: all clean run test rebuild
 
 all: $(TARGET)
+
+rebuild:
+	rm -f $(TARGET)
+	$(MAKE) all
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
-$(TARGET): $(ALL_SRCS) | $(BUILD_DIR)
+$(TARGET): $(ALL_SRCS) $(ALL_HDRS) | $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) $(ALL_SRCS) -o $(TARGET) $(LDFLAGS)
 
-$(TEST_TARGET): $(TEST_SRCS) | $(BUILD_DIR)
+$(TEST_TARGET): $(TEST_SRCS) $(UTIL_HDRS) | $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) $(TEST_SRCS) -o $(TEST_TARGET) $(LDFLAGS)
 
 run: $(TARGET)

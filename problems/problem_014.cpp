@@ -3,28 +3,30 @@
 #include <unordered_map>
 
 long long int problem_014( int limit ){
-    std::unordered_map<int, long long int> collatzMap;
-    std::stack<int> collatzChain;
+    std::unordered_map<long long, long long> collatzMap;
+    std::stack<long long> collatzChain;
 
     collatzMap[1] = 1;
-    long long int longestChain = 1, longestIndex = 1, currentKey, 
+    long long longestChain = 1, longestIndex = 1, currentKey,
         newKey, anchorLength, extraLinks;
     int index = 1;
 
     while( index < limit ){
         currentKey = index;
 
-        while( collatzMap.find(currentKey) == collatzMap.end() ) {
+        auto it = collatzMap.find(currentKey);
+        while( it == collatzMap.end() ) {
             collatzChain.push(currentKey);
-            if( currentKey % 2 == 0){
-                currentKey /= 2;
-            } else {
+            if( currentKey & 1 ){  // Odd
                 currentKey = 3 * currentKey + 1;
+            } else {  // Even
+                currentKey >>= 1;
             }
+            it = collatzMap.find(currentKey);
         }
 
         extraLinks = 1;
-        anchorLength = collatzMap.find(currentKey)->second;
+        anchorLength = it->second;  // Reuse cached iterator
 
         while( collatzChain.size() > 0 ){
             newKey = collatzChain.top();

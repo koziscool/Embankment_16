@@ -12,6 +12,7 @@ long long problem_005(int n);
 long long int problem_006( int limit );
 long long int problem_007( int limit );
 long long int problem_010( int limit );
+long long int problem_012( int limit );
 long long int problem_014( int limit );
 long long int problem_015( int limit );
 long long int problem_016( int limit );
@@ -33,6 +34,7 @@ const std::map<int, std::function<long long()>> PROBLEM_MAP = {
     {6,  []() { return problem_006(100); }},
     {7,  []() { return problem_007(10'001); }},
     {10, []() { return problem_010(2'000'000); }},
+    {12, []() { return problem_012(500); }},
     {14, []() { return problem_014(1'000'000); }},
     {15, []() { return problem_015(20); }},
     {16, []() { return problem_016(1'000); }},

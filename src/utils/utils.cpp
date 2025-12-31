@@ -48,6 +48,36 @@ const std::vector<long long>& getPrimes(long long limit) {
     return allPrimes;
 }
 
+std::map<long long int, int> primeFactors(long long int n){
+
+    long long remainder = n;
+    const std::vector<long long int>& primes = getPrimes( n );
+    std::map<long long int, int> factorsMap;
+
+    for(auto p: primes){
+
+        if( remainder == 1 || p * p > remainder)
+            break;
+        while( remainder % p == 0 ){
+            remainder /= p;
+            factorsMap[p] += 1;
+        }
+    }
+
+    if( remainder > 1 )
+        factorsMap[remainder] = 1;    
+
+    return factorsMap;
+}
+
+long long int numFactors( long long int n ){
+    // std::vector<long long int> primes = getPrimes( n );
+    std::map<long long int, int> d = primeFactors(n);
+    long int retVal = 1;
+    for (auto i = d.begin(); i != d.end(); i++) 
+        retVal *= (i->second + 1);
+    return retVal;
+}
 
 long long int factorial(int n){
     if( n == 0 ) return 1;

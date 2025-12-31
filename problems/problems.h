@@ -1,12 +1,9 @@
 
 
-#include <set>
+#include <map>
+#include <functional>
 
-const std::set<int> IMPLEMENTED = 
-        { 1, 2, 3, 4, 5, 6, 7, 10, 14, 15, 16, 20, 25, 29, 40, 43, 46, 53 };
-const int LAST_PROBLEM = 53;
-
-
+// Forward declarations
 int problem_001(int limit);
 int problem_002(int limit);
 long long problem_003(long long n);
@@ -25,3 +22,25 @@ long long int problem_040();
 long long int problem_043();
 long long int problem_046();
 int problem_053( int limit );
+
+// Map from problem number to function (uniform signature: long long())
+const std::map<int, std::function<long long()>> PROBLEM_MAP = {
+    {1,  []() { return problem_001(1000); }},
+    {2,  []() { return problem_002(4000000); }},
+    {3,  []() { return problem_003(600851475143LL); }},
+    {4,  []() { return problem_004(3); }},
+    {5,  []() { return problem_005(20); }},
+    {6,  []() { return problem_006(100); }},
+    {7,  []() { return problem_007(10'001); }},
+    {10, []() { return problem_010(2'000'000); }},
+    {14, []() { return problem_014(1'000'000); }},
+    {15, []() { return problem_015(20); }},
+    {16, []() { return problem_016(1'000); }},
+    {20, []() { return problem_020(100); }},
+    {25, []() { return problem_025(1000); }},
+    {29, []() { return problem_029(100); }},
+    {40, []() { return problem_040(); }},
+    {43, []() { return problem_043(); }},
+    {46, []() { return problem_046(); }},
+    {53, []() { return problem_053(100); }},
+};

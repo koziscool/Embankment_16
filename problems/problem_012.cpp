@@ -1,12 +1,7 @@
 
 #include "../src/utils/utils.h"
-#include <iostream>
 
 long long int problem_012( int limit ){
-
-    auto triangle = [](long long n){
-        return n * (n+1) / 2;
-    };
 
     // Optimization: triangle(n) = n*(n+1)/2
     // Since gcd(n, n+1) = 1, we can factor them separately
@@ -31,5 +26,5 @@ long long int problem_012( int limit ){
         i += 1;
     }
 
-    return triangle(i);
+    return i * (i+1) / 2;
 }

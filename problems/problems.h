@@ -18,6 +18,7 @@ long long int problem_015( int limit );
 long long int problem_016( int limit );
 int problem_020( int limit );
 int problem_025( int limit );
+long long int problem_028( int gridSize );
 long long int problem_029(int limit);
 long long int problem_040();
 long long int problem_043();
@@ -40,6 +41,7 @@ const std::map<int, std::function<long long()>> PROBLEM_MAP = {
     {16, []() { return problem_016(1'000); }},
     {20, []() { return problem_020(100); }},
     {25, []() { return problem_025(1000); }},
+    {28, []() { return problem_028(1001); }},
     {29, []() { return problem_029(100); }},
     {40, []() { return problem_040(); }},
     {43, []() { return problem_043(); }},

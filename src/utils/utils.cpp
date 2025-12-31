@@ -71,7 +71,6 @@ std::map<long long int, int> primeFactors(long long int n){
 }
 
 long long int numFactors( long long int n ){
-    // std::vector<long long int> primes = getPrimes( n );
     std::map<long long int, int> d = primeFactors(n);
     long int retVal = 1;
     for (auto i = d.begin(); i != d.end(); i++) 

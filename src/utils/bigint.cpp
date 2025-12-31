@@ -3,6 +3,14 @@
 
 // Default constructor
 BigInt::BigInt() : digits({0}) {}
+    
+BigInt::BigInt( std::vector<int> d ){
+    digits = d;
+    // Remove trailing zeros (but keep at least one digit)
+    while (digits.size() > 1 && digits.back() == 0) {
+        digits.pop_back();
+    }
+}
 
 // Constructor from long long
 BigInt::BigInt(long long n) {
@@ -151,6 +159,16 @@ BigInt BigInt::pow(int exp) const {
     return result;
 }
 
+BigInt BigInt::reverseAndAdd() const {
+    BigInt reverseN(std::vector<int>( digits.rbegin(), digits.rend() ) );
+    BigInt result = *this + reverseN;
+
+    while (result.digits.size() > 1 && result.digits.back() == 0) {
+        result.digits.pop_back();
+    }
+    return result;
+}
+
 // Sum all digits
 int BigInt::digit_sum() const {
     int sum = 0;
@@ -162,6 +180,10 @@ int BigInt::digit_sum() const {
 
 int BigInt::num_digits() const {
     return digits.size();
+}
+
+bool BigInt::isPalindrome() const {
+    return std::vector<int>( digits.rbegin(), digits.rend() )  == digits;
 }
 
 // Convert to string

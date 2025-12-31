@@ -24,6 +24,8 @@ long long int problem_040();
 long long int problem_043();
 long long int problem_046();
 int problem_053( int limit );
+int problem_055( int problemLimit );
+
 
 // Map from problem number to function (uniform signature: long long())
 const std::map<int, std::function<long long()>> PROBLEM_MAP = {
@@ -47,4 +49,5 @@ const std::map<int, std::function<long long()>> PROBLEM_MAP = {
     {43, []() { return problem_043(); }},
     {46, []() { return problem_046(); }},
     {53, []() { return problem_053(100); }},
+    {55, []() { return problem_055(10'000); }},
 };

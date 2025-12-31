@@ -61,6 +61,12 @@ void run_problem(int prob_num) {
             std::cout << "Result: " << std::setw(21) << std::left << result;
             break;
         }
+        case 14: {
+            int n = 1'000'000;
+            long long result = problem_014(n);
+            std::cout << "Result: " << std::setw(21) << std::left << result;
+            break;
+        }
         case 15: {
             int n = 20;
             long long result = problem_015(n);

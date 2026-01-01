@@ -3,6 +3,7 @@
 #include <cmath>
 #include <iostream>
 #include <string>
+#include <tuple>
 
 std::vector<long long> makePrimes(long long n) {
     if (n <= 2) return {};
@@ -102,3 +103,14 @@ bool isPalindrome(long long n) {
     }
     return true;
 }
+
+
+long long int gcd( long long int a, long long int b ){
+	while ( a % b > 0 ){
+		std::tie(a, b) = std::make_tuple( b, a%b );
+	}
+	return b;
+}
+
+
+

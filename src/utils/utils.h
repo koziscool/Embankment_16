@@ -17,3 +17,5 @@ long long int factorial(int n);
 long long int combinations(int n, int r);
 
 bool isPalindrome( long long int n );
+
+long long int gcd( long long int a, long long int b );
